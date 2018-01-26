@@ -16,4 +16,7 @@ function is_administrator($name = 'Samuel', $value = 'Clemens'){
   }
 } // End of is_administrator() function
 
+function feedback(){
+  echo "I'm OK!";
+}
 ?>
