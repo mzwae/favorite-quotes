@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 //Define a page title and include the header:
 define('TITLE', 'Add a Quote');
@@ -17,43 +17,43 @@ if(!is_administrator()){
 // Check for a form submission:
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
   // Handle the form.
-  
+
   if(!empty($_POST['quote']) && !empty($_POST['source'])){
     // Need the database connection:
     include('../mysqli_connect.php');
-    
+
     // Prepare the values for storing:
     $quote = mysqli_real_escape_string($dbc, trim(strip_tags($_POST['quote'])));
     $source = mysqli_real_escape_string($dbc, trim($_POST['source']));
-  
-    
+
+
     // Create the "favorite" value:
     if(isset($_POST['favorite'])){
       $favorite = 1;
     } else {
       $favorite = 0;
     }
-    
+
     $query = "INSERT INTO quotes (quote, source, favorite) VALUES ('$quote', '$source', '$favorite')";
-    
+
     mysqli_query($dbc, $query);
-    
+
     if(mysqli_affected_row($dbc) == 1){
       //Print a message:
       print '<p>Your quotation has been stored.</p>';
     } else {
       print '<p class="error"> Could not store the quote because:<br>' . mysqli_error($dbc) . '.</p><p>The query being run was: ' . $query . '</p>';
     }
-    
+
     // Close the connection:
     mysqli_close($dbc);
-          
+
   } else {
     // Failed to enter a quotation
-    print '<p class="error">Please enter a quotation and a source!</p>'
+    print '<p class="error">Please enter a quotation and a source!</p>';
   }
-} // End of submitted IF.
 
+}// End of submitted IF.
 // Leave PHP and display the form:
 ?>
 
