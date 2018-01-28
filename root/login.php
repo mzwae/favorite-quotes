@@ -12,12 +12,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //Correct
 
             //Create the cookie:
-            setcookie('Samuel', 'Clemens', time() + 3600);
+            setcookie('Samuel', 'Clemens', time() + 24*3600);
 
             //Indicate they are logged in:
             $loggedin = true;
         } else { // Incorrect!
-      
+
             $error = 'The submitted email address and password do not match those on file!';
         }
     }
