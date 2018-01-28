@@ -3,12 +3,10 @@
 //Set two variables with default values:
 $loggedin = false;
 $error = false;
-print "hello from login.php";
 
 //Check if teh form has been submitted:
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
   //Handle the form:
-  echo "received request of login";
   if(!empty($_POST['email']) && !empty($_POST['password'])){
     
     if((strtolower($_POST['email']) == 'me@example.com') && ($_POST['password'] == 'testpass')){
@@ -19,7 +17,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
       
       //Indicate they are logged in:
       $loggedin = true;
-      echo "you're now loggedin";
     } else { // Incorrect!
       
       $error = 'The submitted email address and password do not match those on file!';

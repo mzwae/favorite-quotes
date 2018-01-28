@@ -38,7 +38,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     mysqli_query($dbc, $query);
 
-    if(mysqli_affected_row($dbc) == 1){
+    if(mysqli_affected_rows($dbc) == 1){
       //Print a message:
       print '<p>Your quotation has been stored.</p>';
     } else {
